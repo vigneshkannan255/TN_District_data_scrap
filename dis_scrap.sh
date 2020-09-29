@@ -1,3 +1,4 @@
+#!/bin/sh
 input="tn_district"
 touch data.txt
 while IFS= read -r line
