@@ -1,0 +1,16 @@
+#command to get the district data from the districts.nic.in site
+curl http://districts.nic.in/districts.php?sid=TN | html2text > tn_district
+
+#remove * into spaces
+sed  -i 'y/*/ /' tn_district 
+
+#remove unwanted space
+sed -e 's/^[ \t]*//' -i tn_district
+
+#input as a file tn_district
+input="tn_district"
+
+#creating file to store our output data
+touch data.txt
+
+#reading file line using while loop and curl each district and convert it into text and grep some keywords to extract data
